@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
 from django.views.generic.edit import FormView
+from django.views import View
 from .models import Resource, Source, Category, ResourceRequest, Survey
 from .forms import SearchForm, ResourceRequestForm, SurveyForm
 
