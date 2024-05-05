@@ -1,0 +1,16 @@
+{% extends 'smallbiz_security/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<h3>Please complete the form, if you would like to request a resource be added. Thank you!</h3>
+
+<body>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <input type="submit" value="Save record" />
+    </form>
+</body>
+
+{% endblock %}

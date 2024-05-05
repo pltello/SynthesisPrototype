@@ -1,0 +1,20 @@
+{% extends "smallbiz_security/base.html" %}
+
+{% block content %}
+<h2>Approved Resources</h2>
+<h4>Total: {{ resource_list|length }}</h4>
+<hr>
+<ul>
+    {% for item in resource_list %}
+    <li>
+        <span>Resource: </span><span>{{ item.ResourceName }}</span>
+        <br>
+        <span>Link: </span><span>{{ item.Link }}</span>
+        <br>
+        <span>Date Uploaded: </span><span>{{ item.DateUploaded }}</span>
+        <br>
+    </li>
+    <br>
+    {% endfor %}
+</ul>
+{% endblock %}

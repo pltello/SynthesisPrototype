@@ -1,0 +1,16 @@
+{% extends 'smallbiz_security/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<h2>Please complete the survey. Thank you!</h2>
+
+<body>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <input type="submit" value="Save record" />
+    </form>
+</body>
+
+{% endblock %}

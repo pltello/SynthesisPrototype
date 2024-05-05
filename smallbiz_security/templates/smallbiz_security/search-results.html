@@ -1,0 +1,32 @@
+{% extends "smallbiz_security/base.html" %}
+{% block title %}
+{% if form.is_valid and search_text %}
+Search Results for "{{ search_text }}"
+{% else %}
+Resource Search
+{% endif %}
+{% endblock %}
+{% block content %}
+<h2>Search for Resources</h2>
+<form>
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>
+{% if form.is_valid and search_text %}
+<h3>Search Results for <em>{{ search_text }}</em></h3>
+<ul class="list-group">
+    {% for resource in resources %}
+    <li class="list-group-item">
+        <span class="text-info">Resource: </span> {{ resource }}</a>
+        <br />
+
+        {% for source in resource.sources.all %}
+        {% if not forloop.last %}, {% endif %}
+        {% endfor %}
+    </li>
+    {% empty %}
+    <li class="list-group-item">No results found.</li>
+    {% endfor %}
+</ul>
+{% endif %}
+{% endblock %}
