@@ -56,6 +56,11 @@ def resource_list(request):
     return render(request, 'smallbiz_security/resource-list.html', context)
 
 
+class FormSuccessView(View):
+    def get(self, request, *args, **kwargs):
+        return HttpResponse("Record saved successfully.")
+
+
 class ResourceRequestFormView(FormView):
     template_name = 'smallbiz_security/resource-request-form.html'
     form_class = ResourceRequestForm
