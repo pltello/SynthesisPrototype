@@ -18,7 +18,7 @@ from django.conf import settings
 from django.contrib import admin
 from django.urls import include, path
 from smallbiz_security import views
-from smallbiz_security.views import ResourceRequestFormView, SurveyFormView
+from smallbiz_security.views import FormSuccessView, ResourceRequestFormView, SurveyFormView
 from rest_framework import routers
 from smallbiz_security import api_views
 
@@ -33,6 +33,7 @@ urlpatterns = [
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('resource-search', views.resource_search, name='resource search'),
     path('resource-list', views.resource_list, name='resource list'),
+    path('entry_success', FormSuccessView.as_view(), name='form_success'),
     path('resource-request-form', ResourceRequestFormView.as_view(),
          name='resource-request-form'),
     path('survey-form', SurveyFormView.as_view(),
